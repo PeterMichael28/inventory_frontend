@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/inventory_frontned/static/css/main.14fdfb5b.css",
+    "main.js": "/inventory_frontned/static/js/main.1a4f288e.js",
+    "static/media/inv-img.png": "/inventory_frontned/static/media/inv-img.88b2acec73355d47e6f0.png",
+    "static/media/loader.gif": "/inventory_frontned/static/media/loader.9d11df4bdd0bb34de773.gif",
+    "index.html": "/inventory_frontned/index.html",
+    "main.14fdfb5b.css.map": "/inventory_frontned/static/css/main.14fdfb5b.css.map",
+    "main.1a4f288e.js.map": "/inventory_frontned/static/js/main.1a4f288e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14fdfb5b.css",
+    "static/js/main.1a4f288e.js"
+  ]
+}
