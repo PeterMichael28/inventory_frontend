@@ -17,11 +17,11 @@ const Sidebar = ({ children }) => {
 
   return (
     <div className="layout">
-      <div className="sidebar" style={{ width: isOpen ? "230px" : "60px" }}>
+      <div className="sidebar" style={{ width: isOpen ? "170px" : "50px" }}>
         <div className="top_section">
           <div className="logo" style={{ display: isOpen ? "block" : "none" }}>
             <TbLetterM
-              size={35}
+              size={30}
               style={{ cursor: "pointer" }}
               onClick={goHome}
             />
@@ -29,7 +29,7 @@ const Sidebar = ({ children }) => {
 
           <div
             className="bars"
-            style={{ marginLeft: isOpen ? "140px" : "0px" }}
+            style={{ marginLeft: isOpen ? "90px" : "0px" }}
           >
             <HiMenuAlt3 onClick={toggle} />
           </div>
@@ -41,7 +41,7 @@ const Sidebar = ({ children }) => {
 
       <main
         style={{
-          paddingLeft: isOpen ? "230px" : "60px",
+          paddingLeft: isOpen ? "160px" : "40px",
           transition: "all .5s",
         }}
       >

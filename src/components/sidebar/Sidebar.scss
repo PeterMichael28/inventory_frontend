@@ -69,6 +69,8 @@ main {
   font-size: 1.2em;
   justify-content: space-between;
   align-items: center;
+
+ 
 }
 
 .sidebar-title span {
@@ -143,4 +145,34 @@ a {
 
 .sublink .sidebar-item .sidebar-title {
   padding-left: 40px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+
+  .sidebar-title {
+    .icon{
+      svg{
+        font-size: 1.7rem;
+      }
+    }
+  }
+  
+  .sidebar-title span {
+    gap: 5px;
+    font-size: 1.4rem;
+  }
+
+  .sidebar-title span .icon {
+    width: 1.2em;
+    font-size: 25px;
+  }
+  
+  .sidebar-title .arrow-icon {
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  
 }

@@ -88,7 +88,7 @@ const ProductList = ({ products, isLoading }) => {
       <hr />
       <div className="table">
         <div className="--flex-between --flex-dir-column">
-          <span>
+          <span className='inventory-text'>
             <h3>Inventory Items</h3>
           </span>
           <span>

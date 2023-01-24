@@ -497,3 +497,17 @@ a:hover {
   background-color: var(--light-blue);
   height: 100%;
 }
+
+
+@media only screen and (max-width: 600px) {
+
+  .text-header {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .header-btn {
+    font-size: 1.4rem;
+  }
+}
+

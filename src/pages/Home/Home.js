@@ -3,12 +3,30 @@ import { TbLetterM } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import "./Home.scss";
 import heroImg from "../../assets/inv-img.png";
-// import { useSelector } from "react-redux";
-// import { selectIsLoggedIn } from "../../store/features/auth/authSlice.js";
 import { ShowOnLogin, ShowOnLogout } from "../../components/protect/HiddenLink";
-// import { ShowOnLogin, ShowOnLogout } from "../../components/protect/HiddenLink";
+import { useDispatch} from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../../services/authService";
+import { SET_LOGIN } from "../../store/features/auth/authSlice.js";
+
+
+
+
 
 const Home = () => {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+
+  const logout = async () => {
+    const res =  await logoutUser();
+      await dispatch( SET_LOGIN( false ) );
+      // toast.success(res.message)
+      // console.log(res)
+      navigate("/login");
+    };
+  
 
   
   // console.log('Home', isLoggedIn)
@@ -37,6 +55,11 @@ const Home = () => {
               <button className="--btn --btn-primary">
                 <Link to="/dashboard">Dashboard</Link>
               </button>
+            </li>
+            <li>
+            <button onClick={logout} className="--btn --btn-danger header-btn">
+          Logout
+        </button>
             </li>
           </ShowOnLogin>
         </ul>
