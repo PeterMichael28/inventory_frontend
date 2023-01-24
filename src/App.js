@@ -37,7 +37,7 @@ function App() {
     const userIsStillLoggedIn = async () => {
      const data = await loginStatus();
      // console.log( data )
-     console.log("data", data);
+    //  console.log("data", data);
      await dispatch(SET_LOGIN(data));
     }
     userIsStillLoggedIn()

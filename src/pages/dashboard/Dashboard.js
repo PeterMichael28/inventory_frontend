@@ -6,15 +6,27 @@ import { getProducts } from "../../store/features/product/productSlice";
 
 import ProductList from "../../components/product/productList/ProductList"
 import useRedirectLoggedOutUser from "../../customHook/useRedirectLoggedOutUser";
+import { useNavigate } from "react-router-dom";
 
 
 const Dashboard = () => {
 
-  useRedirectLoggedOutUser("/login")
+  // useRedirectLoggedOutUser("/login")
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isLoggedIn = useSelector( selectIsLoggedIn );
+
+  useEffect( () => {
+    if ( !isLoggedIn ) {
+      navigate('/login')
+    }
+  }, [navigate, isLoggedIn])
+
+ 
+  
+
   const { products, isLoading, isError, message } = useSelector(
     (state) => state.product
   );

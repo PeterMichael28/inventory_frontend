@@ -13,6 +13,7 @@ const useRedirectLoggedOutUser = (path) => {
   useEffect(() => {
     const redirectLoggedOutUser = async () => {
       const isLoggedIn = await loginStatus();
+      console.log('redirect', isLoggedIn);
       dispatch(SET_LOGIN(isLoggedIn));
 
       if (!isLoggedIn) {
