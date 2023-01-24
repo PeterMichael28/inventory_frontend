@@ -7,8 +7,8 @@ export const backendUrl = 'https://inventoryapi.onrender.com';
 export const registerUser = async (userData) => {
 
     try {
-        const response = await axios.post( `${ backendUrl }/api/users/register`, userData )
-        if ( response.statusText === 'Created' ) {
+        const response = await axios.post( `${ backendUrl }/api/users/register`, userData, {withCredentials: true} )
+        if ( response.status === 200 ) {
             toast.success( "Registration Successful" )
             return response.data
         }
@@ -26,11 +26,13 @@ export const registerUser = async (userData) => {
 export const loginUser = async (userData) => {
 
     try {
-        const response = await axios.post( `${ backendUrl }/api/users/login`, userData )
-        if ( response.statusText === 'OK' ) {
+        const response = await axios.post( `${ backendUrl }/api/users/login`, userData, {withCredentials: true} )
+        if ( response.status === 200 ) {
             toast.success( "Login Successful" )
+
             return response.data
         }
+        console.log(response.data);
         // return response
     } catch (error) {
         const message = (
@@ -46,8 +48,8 @@ export const loginUser = async (userData) => {
 export const forgotPassword = async (userData) => {
 
     try {
-        const response = await axios.post( `${ backendUrl }/api/users/forgotpassword`, userData )
-        if ( response.statusText === 'OK' ) {
+        const response = await axios.post( `${ backendUrl }/api/users/forgotpassword`, userData, {withCredentials: true} )
+        if ( response.status === 200 ) {
             toast.success( response.data.message )
             return response.data
         }
@@ -64,8 +66,8 @@ export const forgotPassword = async (userData) => {
 //logout User
 export const logoutUser = async () => {
     try {
-        const response = await axios.get( `${ backendUrl }/api/users/logout` )
-   if ( response.statusText === 'OK' ) {
+        const response = await axios.get( `${ backendUrl }/api/users/logout`, {withCredentials: true} )
+   if ( response.status === 200 ) {
             toast.success( response.data.message )
             return response.data
         }
@@ -82,8 +84,8 @@ export const logoutUser = async () => {
 export const resetPassword = async (userData, resetToken) => {
 
     try {
-        const response = await axios.put( `${ backendUrl }/api/users/resetpassword/${resetToken}`, userData )
-        if ( response.statusText === 'OK' ) {
+        const response = await axios.put( `${ backendUrl }/api/users/resetpassword/${resetToken}`, userData, {withCredentials: true} )
+        if ( response.status === 200 ) {
             toast.success( response.data.message )
             return response.data
         }
@@ -102,10 +104,12 @@ export const resetPassword = async (userData, resetToken) => {
 export const loginStatus = async () => {
     try {
         const response = await axios.get( `${ backendUrl }/api/users/loggedin`)
-        if ( response.statusText === 'OK' ) {
+        if ( response.status === 200 ) {
             // toast.success( 'Welcome back' )
             return response.data
         }
+
+        // console.log(first)
       
        
     } catch (error) {

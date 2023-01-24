@@ -15,7 +15,9 @@ const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()  
 
+  const isLoggedIn = useSelector(selectIsLoggedIn)
 
+  console.log(isLoggedIn)
   const initialState = {
     email: '',
     password: ''
@@ -59,6 +61,7 @@ const Login = () => {
     setIsLoading( true )
     try {
       const data = await loginUser( userData )
+      console.log(data)
       if ( data ) {
         await dispatch( SET_LOGIN( true ) )
         await dispatch(SET_NAME(data.name))

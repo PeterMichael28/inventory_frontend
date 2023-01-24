@@ -22,7 +22,8 @@ import EditProfile from "./pages/profile/EditProfile";
 import Contact from "./pages/contact/Contact";
 
 
-// axios.defaults.withCredentials = true; //to accept all credentials from backend
+axios.defaults.withCredentials = true; 
+//to accept all credentials from backend
 
 function App() {
 
@@ -34,9 +35,10 @@ function App() {
   useEffect( () => {
     
     const userIsStillLoggedIn = async () => {
-      const data = await loginStatus()
-      await dispatch( SET_LOGIN( data ) )
-
+     const data = await loginStatus();
+     // console.log( data )
+     console.log("data", data);
+     await dispatch(SET_LOGIN(data));
     }
     userIsStillLoggedIn()
   
