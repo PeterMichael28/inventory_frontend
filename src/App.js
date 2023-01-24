@@ -22,7 +22,7 @@ import EditProfile from "./pages/profile/EditProfile";
 import Contact from "./pages/contact/Contact";
 
 
-axios.defaults.withCredentials = true; //to accept all credentials from backend
+// axios.defaults.withCredentials = true; //to accept all credentials from backend
 
 function App() {
 

@@ -1,13 +1,13 @@
 import axios from 'axios';
 import {toast} from 'react-toastify'
 
-export const backendUrl = process.env.REACT_APP_BACKEND_URL;
+export const backendUrl = 'https://inventoryapi.onrender.com';
 
 //register user
 export const registerUser = async (userData) => {
 
     try {
-        const response = await axios.post( `${ backendUrl }/api/users/register`, userData, {withCredentials: true} )
+        const response = await axios.post( `${ backendUrl }/api/users/register`, userData )
         if ( response.statusText === 'Created' ) {
             toast.success( "Registration Successful" )
             return response.data
@@ -26,7 +26,7 @@ export const registerUser = async (userData) => {
 export const loginUser = async (userData) => {
 
     try {
-        const response = await axios.post( `${ backendUrl }/api/users/login`, userData, {withCredentials: true} )
+        const response = await axios.post( `${ backendUrl }/api/users/login`, userData )
         if ( response.statusText === 'OK' ) {
             toast.success( "Login Successful" )
             return response.data
@@ -46,7 +46,7 @@ export const loginUser = async (userData) => {
 export const forgotPassword = async (userData) => {
 
     try {
-        const response = await axios.post( `${ backendUrl }/api/users/forgotpassword`, userData, {withCredentials: true} )
+        const response = await axios.post( `${ backendUrl }/api/users/forgotpassword`, userData )
         if ( response.statusText === 'OK' ) {
             toast.success( response.data.message )
             return response.data
@@ -64,7 +64,7 @@ export const forgotPassword = async (userData) => {
 //logout User
 export const logoutUser = async () => {
     try {
-        const response = await axios.get( `${ backendUrl }/api/users/logout`, {withCredentials: true} )
+        const response = await axios.get( `${ backendUrl }/api/users/logout` )
    if ( response.statusText === 'OK' ) {
             toast.success( response.data.message )
             return response.data
@@ -82,7 +82,7 @@ export const logoutUser = async () => {
 export const resetPassword = async (userData, resetToken) => {
 
     try {
-        const response = await axios.put( `${ backendUrl }/api/users/resetpassword/${resetToken}`, userData, {withCredentials: true} )
+        const response = await axios.put( `${ backendUrl }/api/users/resetpassword/${resetToken}`, userData )
         if ( response.statusText === 'OK' ) {
             toast.success( response.data.message )
             return response.data
